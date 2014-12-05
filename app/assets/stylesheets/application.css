@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.date {
+  font-size: 30%;
+}
+
+.right {
+  text-align: right;
+}

@@ -1,23 +1,41 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Mi Blog!</a>
+    </div>
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to 'New article', new_article_path %></li>
+    </ul>
+    
+  </div><!-- /.container-fluid -->
+</nav>
 
-<p>
-  <strong>Date:</strong>
-  <%= @article.created_at %>
-</p> 
+<div class="container-fluid">
+  <div class="jumbotron">
+    <div class="page-header">
+      <h1><%= @article.title %>    <small class="date"><%= @article.created_at %></small></h1>
+    </div>
+    <p><%= @article.text %></p>
+  </div>
+</div>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+<div class="container-fluid">
 
-<h2>Add a comment:</h2>
-<%= render "comments/form" %>
+  <h2>Comments</h2>
+  <%= render @article.comments %>
 
-<%= link_to 'Back', articles_path %>
-| <%= link_to 'Edit', edit_article_path(@article) %>
+  <h2>Add a comment:</h2>
+  <%= render "comments/form" %>
+
+  <%= link_to 'Back', articles_path %>
+  | <%= link_to 'Edit', edit_article_path(@article) %>
+
+</div>
