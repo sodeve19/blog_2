@@ -12,11 +12,11 @@
 
             
             <div class="row">
-              <div class="form-group col-md-4 col-sm-4 article-author-img">
+              <div class="form-group col-md-5 col-sm-5 article-author-img text-center">
                 <%= image_tag Gravatar.new(article.user.email).image_url(s: 200) if article.user %>
                 <h4><%= article.user.email if article.user %></h4>
               </div>
-              <div class="form-group col-md-8 col-sm-8 text-justify">
+              <div class="form-group col-md-7 col-sm-7 text-justify">
                 <%= article.text %>
               </div>
             </div>
