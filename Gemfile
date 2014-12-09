@@ -31,6 +31,8 @@ gem 'autoprefixer-rails'
 
 gem 'devise'
 
+gem 'gravatar-ultimate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

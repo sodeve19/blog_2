@@ -14,10 +14,20 @@
  *= require_self
  */
 
+nav img {
+  border-radius: 50px;
+  height: 50px;
+}
+
 .date {
   font-size: 30%;
 }
 
 .right {
   text-align: right;
+}
+
+.article-author-img img {
+  border-radius: 200px;
+  height: 200px;
 }
