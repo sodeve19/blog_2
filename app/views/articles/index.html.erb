@@ -16,15 +16,16 @@
                 <%= image_tag Gravatar.new(article.user.email).image_url(s: 200) if article.user %>
                 <h4><%= article.user.email if article.user %></h4>
               </div>
-              <div class="form-group col-md-8 col-sm-8">
+              <div class="form-group col-md-8 col-sm-8 text-justify">
                 <%= article.text %>
               </div>
             </div>
             
+            <p class="text-right"> <%= article.comments.count %> comentarios  
             <% if article.user == current_user %>
-              <p><%= link_to 'Edit', edit_article_path(article) %> | <%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-              <span class="right" ><%= render article.comments %></span>
+              | <%= link_to 'Edit', edit_article_path(article) %> | <%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></p>
             <% end %>
+            <!--span class="right" ><%= render article.comments %></span-->
           </div>
         <!--/div-->
       <% end %>
@@ -41,6 +42,25 @@
               <div class="page-header">
                 <h2><%= link_to article.title, article_path(article) %></h4>
                 <small><%= article.created_at %></small>
+              </div>
+            </div>
+            <!--/div-->
+          <% end %>
+
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h2>Más comentados</h2>
+
+          <% @top_articles_comm.each do |index| %>
+        <!--div class="container"-->
+            <div class="jumbotron">
+              <div class="page-header">
+                <h2><%= link_to index.article.title, article_path(index.article) %></h2>
+                <small><%= index.article.created_at %></small>
+                <div class="text-right"><%= index.commentsNumber %> comentarios </div>
               </div>
             </div>
             <!--/div-->

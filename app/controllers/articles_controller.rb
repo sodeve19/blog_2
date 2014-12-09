@@ -32,6 +32,12 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    if current_user == @article.user 
+      render :edit
+    else
+      redirect_to articles_path
+    end
+
   end
 
   def update
@@ -47,6 +53,9 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all.order("created_at DESC") 
     @top_articles = Article.all.order("created_at DESC").limit(5) 
+    @top_articles_comm = Article.commentsCount 
+
+   # @number_comments = Article.find(params[:id]).comments.count 
   end
 
   def destroy
