@@ -26,6 +26,11 @@
       </div>
 
       <div class="form-group">
+        <%= f.check_box :writter %>
+        <%= f.label "Are you going to write articles?" %>
+      </div>
+
+      <div class="form-group">
         <%= f.submit "Sign up", class: "btn btn-default" %>
       </div>
     <% end %>
