@@ -5,10 +5,10 @@ class Article < ActiveRecord::Base
                     length: { minimum: 4 }
 
   def self.commentsCount 
-    Comment.select("article_id, count(*) as commentsNumber")
+    Comment.select("article_id, count(*) comments_number")
            .joins(:article)
            .group(:article_id)
-           .order("commentsNumber DESC")
+           .order("comments_number DESC")
            .limit(5)#("as numberofcomments").order("numberofcomments DESC")
   end
 
